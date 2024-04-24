@@ -1,0 +1,77 @@
+version: '3.1'
+services:
+  postgress:
+    image: postgres
+    restart: always
+    container_name: postgrescqrs
+    environment:
+      POSTGRES_DB: accountsquery
+      POSTGRES_PASSWORD: sa
+      POSTGRES_USER: sa
+    ports:
+      - "5432:5432"
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: postgresuicqrs
+    ports:
+      - "8082:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: sa@me.com
+      PGADMIN_DEFAULT_PASSWORD: sa
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongocqrs
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sa
+      MONGO_INITDB_ROOT_PASSWORD: sa
+  mongo-express:
+    image: mongo-express
+    restart: always
+    container_name: mongouicqrs
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: sa
+      ME_CONFIG_MONGODB_ADMINPASSWORD: sa
+      ME_CONFIG_MONGODB_URL: mongodb://sa:sa@mongo:27017/
+      ME_CONFIG_BASICAUTH: false
+  zookeeper:
+    image: bitnami/zookeeper
+    restart: always
+    container_name: zookeepercqrs
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: bitnami/kafka
+    restart: always
+    container_name: kafkacqrs
+    ports:
+      - "9092:9092"
+    volumes:
+      - "kafka_data:/bitnami"
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_LISTENER=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://localhost:9092
+    depends_on:
+      - zookeeper
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    restart: always
+    container_name: kafkauicqrs
+    ports:
+      - "8083:8080"
+    environment:
+      DYNAMIC_CONFIG_ENABLED: 'true'
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
