@@ -23,9 +23,12 @@ services:
     image: mongo
     restart: always
     container_name: mongocqrs
+    ports:
+      - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: sa
       MONGO_INITDB_ROOT_PASSWORD: sa
+      MONGO_INITDB_DATABASE: backAccount
   mongo-express:
     image: mongo-express
     restart: always
