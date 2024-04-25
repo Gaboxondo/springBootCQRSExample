@@ -1,9 +1,9 @@
 package com.mashosoft.AccountCommand.domain.aggregates;
 
-import com.mashosoft.AccountCommand.domain.events.AccountOpenedEvent;
-import com.mashosoft.AccountCommand.domain.events.CloseAccountEvent;
-import com.mashosoft.AccountCommand.domain.events.DepositMoneyEvent;
-import com.mashosoft.AccountCommand.domain.events.WithdrawMoneyEvent;
+import com.mashosoft.AccountCommand.domain.events.model.AccountOpenedEvent;
+import com.mashosoft.AccountCommand.domain.events.model.CloseAccountEvent;
+import com.mashosoft.AccountCommand.domain.events.model.DepositMoneyEvent;
+import com.mashosoft.AccountCommand.domain.events.model.WithdrawMoneyEvent;
 import com.mashosoft.AccountCommand.eventFrameworkCore.aggregates.AggregateRoot;
 import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommand;
 import lombok.Data;

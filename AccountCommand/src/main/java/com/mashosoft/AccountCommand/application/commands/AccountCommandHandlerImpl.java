@@ -1,6 +1,6 @@
 package com.mashosoft.AccountCommand.application.commands;
 
-import com.mashosoft.AccountCommand.application.events.AccountEventSourceHandler;
+import com.mashosoft.AccountCommand.domain.events.store.AccountEventSourceHandler;
 import com.mashosoft.AccountCommand.domain.aggregates.AccountAggregate;
 import com.mashosoft.AccountCommand.domain.commands.CloseAccountCommand;
 import com.mashosoft.AccountCommand.domain.commands.DepositMoneyCommand;
