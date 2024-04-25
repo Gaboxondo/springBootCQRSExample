@@ -1,7 +1,6 @@
 package com.mashosoft.AccountCommand.domain.events;
 
-import com.mashosoft.AccountCommand.eventFrameworkCore.commands.BaseEvent;
-import lombok.AllArgsConstructor;
+import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;

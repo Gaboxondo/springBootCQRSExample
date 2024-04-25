@@ -1,5 +1,6 @@
-package com.mashosoft.AccountCommand.eventFrameworkCore.commands;
+package com.mashosoft.AccountCommand.eventFrameworkCore.aggregates;
 
+import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;

@@ -4,7 +4,7 @@ import com.mashosoft.AccountCommand.domain.events.AccountOpenedEvent;
 import com.mashosoft.AccountCommand.domain.events.CloseAccountEvent;
 import com.mashosoft.AccountCommand.domain.events.DepositMoneyEvent;
 import com.mashosoft.AccountCommand.domain.events.WithdrawMoneyEvent;
-import com.mashosoft.AccountCommand.eventFrameworkCore.commands.AggregateRoot;
+import com.mashosoft.AccountCommand.eventFrameworkCore.aggregates.AggregateRoot;
 import com.mashosoft.AccountCommand.interfaces.web.commandsDto.OpenAccountCommandDTO;
 
 import java.util.Date;

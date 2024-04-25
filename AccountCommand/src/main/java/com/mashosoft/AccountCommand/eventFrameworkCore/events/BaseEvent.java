@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.eventFrameworkCore.commands;
+package com.mashosoft.AccountCommand.eventFrameworkCore.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
