@@ -5,7 +5,7 @@ import com.mashosoft.AccountCommand.domain.events.CloseAccountEvent;
 import com.mashosoft.AccountCommand.domain.events.DepositMoneyEvent;
 import com.mashosoft.AccountCommand.domain.events.WithdrawMoneyEvent;
 import com.mashosoft.AccountCommand.eventFrameworkCore.aggregates.AggregateRoot;
-import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommandDTO;
+import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommand;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +20,7 @@ public class AccountAggregate extends AggregateRoot {
     private Double balance;
     private String accountHolder;
 
-    public AccountAggregate(OpenAccountCommandDTO commandDTO){
+    public AccountAggregate(OpenAccountCommand commandDTO){
         String id = UUID.randomUUID().toString();
         commandDTO.setId( id );
         applyNewEvent( AccountOpenedEvent.builder()

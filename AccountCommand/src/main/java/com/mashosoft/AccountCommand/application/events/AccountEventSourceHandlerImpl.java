@@ -29,8 +29,6 @@ public class AccountEventSourceHandlerImpl implements AccountEventSourceHandler{
         List<BaseEvent> events = accountEventStore.getEvents( id );
         if(events != null && !events.isEmpty()){
             accountAggregate.reconstructFromEvents( events );
-            Optional<Integer> latestVersion = events.stream().map( BaseEvent::getVersion ).max( Comparator.naturalOrder() );
-            accountAggregate.setVersion( latestVersion.get() );
         }
 
         return accountAggregate;

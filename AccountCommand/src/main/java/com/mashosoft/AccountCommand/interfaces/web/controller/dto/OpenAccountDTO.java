@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.interfaces.web.commandsDto;
+package com.mashosoft.AccountCommand.interfaces.web.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -5,7 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @Slf4j
 public abstract class AggregateRoot {
@@ -55,6 +58,9 @@ public abstract class AggregateRoot {
     }
 
     public void reconstructFromEvents(Iterable<BaseEvent> events){
-        events.forEach( event -> applyEventChange( event,false ) );
+        events.forEach( event -> applyEventChange( event,false ) );;
+        Optional<Integer> latestVersion = StreamSupport.stream( events.spliterator(), false)
+            .map( BaseEvent::getVersion ).max( Comparator.naturalOrder() );
+        this.version = latestVersion.get();
     }
 }

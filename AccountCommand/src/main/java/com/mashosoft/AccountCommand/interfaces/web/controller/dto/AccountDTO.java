@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.interfaces.web.commandsDto;
+package com.mashosoft.AccountCommand.interfaces.web.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,4 +13,5 @@ public class AccountDTO {
     private Boolean active;
     private Double balance;
     private String accountHolder;
+    private Integer version;
 }

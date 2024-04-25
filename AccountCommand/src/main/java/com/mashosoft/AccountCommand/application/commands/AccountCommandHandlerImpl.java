@@ -2,10 +2,10 @@ package com.mashosoft.AccountCommand.application.commands;
 
 import com.mashosoft.AccountCommand.application.events.AccountEventSourceHandler;
 import com.mashosoft.AccountCommand.domain.aggregates.AccountAggregate;
-import com.mashosoft.AccountCommand.domain.commands.CloseAccountCommandDTO;
-import com.mashosoft.AccountCommand.domain.commands.DepositMoneyCommandDTO;
-import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommandDTO;
-import com.mashosoft.AccountCommand.domain.commands.WithdrawMoneyCommandDTO;
+import com.mashosoft.AccountCommand.domain.commands.CloseAccountCommand;
+import com.mashosoft.AccountCommand.domain.commands.DepositMoneyCommand;
+import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommand;
+import com.mashosoft.AccountCommand.domain.commands.WithdrawMoneyCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,31 +16,31 @@ public class AccountCommandHandlerImpl implements AccountCommandHandler {
     private final AccountEventSourceHandler accountEventSourceHandler;
 
     @Override
-    public AccountAggregate handle(OpenAccountCommandDTO openAccountCommandDTO) {
-        AccountAggregate accountAggregate = new AccountAggregate( openAccountCommandDTO );
+    public AccountAggregate handle(OpenAccountCommand openAccountCommand) {
+        AccountAggregate accountAggregate = new AccountAggregate( openAccountCommand );
         accountEventSourceHandler.save( accountAggregate );
         return accountAggregate;
     }
 
     @Override
-    public AccountAggregate handle(DepositMoneyCommandDTO depositMoneyCommandDTO) {
-        AccountAggregate accountAggregate = accountEventSourceHandler.getById( depositMoneyCommandDTO.getId() );
-        accountAggregate.depositMoney( depositMoneyCommandDTO.getAmount() );
+    public AccountAggregate handle(DepositMoneyCommand depositMoneyCommand) {
+        AccountAggregate accountAggregate = accountEventSourceHandler.getById( depositMoneyCommand.getId() );
+        accountAggregate.depositMoney( depositMoneyCommand.getAmount() );
         accountEventSourceHandler.save( accountAggregate );
         return accountAggregate;
     }
 
     @Override
-    public AccountAggregate handle(WithdrawMoneyCommandDTO withdrawMoneyCommandDTO) {
-        AccountAggregate accountAggregate = accountEventSourceHandler.getById( withdrawMoneyCommandDTO.getId() );
-        accountAggregate.withdrawMoney( withdrawMoneyCommandDTO.getAmount() );
+    public AccountAggregate handle(WithdrawMoneyCommand withdrawMoneyCommand) {
+        AccountAggregate accountAggregate = accountEventSourceHandler.getById( withdrawMoneyCommand.getId() );
+        accountAggregate.withdrawMoney( withdrawMoneyCommand.getAmount() );
         accountEventSourceHandler.save( accountAggregate );
         return accountAggregate;
     }
 
     @Override
-    public AccountAggregate handle(CloseAccountCommandDTO closeAccountCommandDTO) {
-        AccountAggregate accountAggregate = accountEventSourceHandler.getById( closeAccountCommandDTO.getId() );
+    public AccountAggregate handle(CloseAccountCommand closeAccountCommand) {
+        AccountAggregate accountAggregate = accountEventSourceHandler.getById( closeAccountCommand.getId() );
         accountAggregate.closeAccount();
         accountEventSourceHandler.save( accountAggregate );
         return accountAggregate;

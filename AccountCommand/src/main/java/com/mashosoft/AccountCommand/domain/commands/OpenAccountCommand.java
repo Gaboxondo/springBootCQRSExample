@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class OpenAccountCommandDTO extends BaseCommand {
+public class OpenAccountCommand extends BaseCommand {
     private String accountHolder;
     private Double openingBalance;
 }

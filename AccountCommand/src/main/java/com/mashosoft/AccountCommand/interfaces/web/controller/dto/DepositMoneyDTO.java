@@ -1,6 +1,5 @@
-package com.mashosoft.AccountCommand.interfaces.web.commandsDto;
+package com.mashosoft.AccountCommand.interfaces.web.controller.dto;
 
-import com.mashosoft.AccountCommand.eventFrameworkCore.commands.BaseCommand;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

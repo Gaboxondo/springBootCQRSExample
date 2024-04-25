@@ -1,10 +1,9 @@
 package com.mashosoft.AccountCommand.interfaces.web.adapter;
 
-import com.mashosoft.AccountCommand.domain.commands.CloseAccountCommandDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.AccountDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.DepositMoneyDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.OpenAccountDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.WithdrawMoneyDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.AccountDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.DepositMoneyDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.OpenAccountDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.WithdrawMoneyDTO;
 
 public interface AccountInterfaceAdapter {
 

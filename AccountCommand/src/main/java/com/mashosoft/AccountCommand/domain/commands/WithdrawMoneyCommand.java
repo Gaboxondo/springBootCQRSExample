@@ -6,6 +6,6 @@ import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
-public class WithdrawMoneyCommandDTO extends BaseCommand {
+public class WithdrawMoneyCommand extends BaseCommand {
     private Double amount;
 }

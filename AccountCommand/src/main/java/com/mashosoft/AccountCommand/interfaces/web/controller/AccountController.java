@@ -1,14 +1,12 @@
 package com.mashosoft.AccountCommand.interfaces.web.controller;
 
 import com.mashosoft.AccountCommand.interfaces.web.adapter.AccountInterfaceAdapter;
-import com.mashosoft.AccountCommand.domain.commands.CloseAccountCommandDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.AccountDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.DepositMoneyDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.OpenAccountDTO;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.WithdrawMoneyDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.AccountDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.DepositMoneyDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.OpenAccountDTO;
+import com.mashosoft.AccountCommand.interfaces.web.controller.dto.WithdrawMoneyDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

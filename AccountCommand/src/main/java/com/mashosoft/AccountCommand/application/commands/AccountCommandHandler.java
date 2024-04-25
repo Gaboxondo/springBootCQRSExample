@@ -1,15 +1,15 @@
 package com.mashosoft.AccountCommand.application.commands;
 
 import com.mashosoft.AccountCommand.domain.aggregates.AccountAggregate;
-import com.mashosoft.AccountCommand.domain.commands.CloseAccountCommandDTO;
-import com.mashosoft.AccountCommand.domain.commands.DepositMoneyCommandDTO;
-import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommandDTO;
-import com.mashosoft.AccountCommand.domain.commands.WithdrawMoneyCommandDTO;
+import com.mashosoft.AccountCommand.domain.commands.CloseAccountCommand;
+import com.mashosoft.AccountCommand.domain.commands.DepositMoneyCommand;
+import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommand;
+import com.mashosoft.AccountCommand.domain.commands.WithdrawMoneyCommand;
 
 public interface AccountCommandHandler {
 
-    public AccountAggregate handle(OpenAccountCommandDTO openAccountCommandDTO);
-    public AccountAggregate handle(DepositMoneyCommandDTO depositMoneyCommandDTO);
-    public AccountAggregate handle(WithdrawMoneyCommandDTO withdrawMoneyCommandDTO);
-    public AccountAggregate handle(CloseAccountCommandDTO closeAccountCommandDTO);
+    public AccountAggregate handle(OpenAccountCommand openAccountCommand);
+    public AccountAggregate handle(DepositMoneyCommand depositMoneyCommand);
+    public AccountAggregate handle(WithdrawMoneyCommand withdrawMoneyCommand);
+    public AccountAggregate handle(CloseAccountCommand closeAccountCommand);
 }
