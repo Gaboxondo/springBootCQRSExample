@@ -5,6 +5,7 @@ import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import com.mashosoft.AccountCommand.domain.events.store.AccountEventStore;
 import com.mashosoft.AccountCommand.infrastructure.eventsDb.EventModelMongo;
 import com.mashosoft.AccountCommand.infrastructure.eventsDb.EventStoreMongoRepository;
+import com.mashosoft.AccountCommand.infrastructure.eventsKafka.KafkaEventProducer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 public class AccountAccountEventStoreImpl implements AccountEventStore {
 
     private final EventStoreMongoRepository eventStoreMongoRepository;
+    private final KafkaEventProducer kafkaEventProducer;
 
     @Override
     public void saveEvents(String aggregateId, Iterable<BaseEvent> events, Integer expectedVersion) {
@@ -39,8 +41,8 @@ public class AccountAccountEventStoreImpl implements AccountEventStore {
                 .build();
 
             EventModelMongo persistedEvent = eventStoreMongoRepository.save( eventModelMongo );
-            if(persistedEvent != null){
-                //TODO: send event to kafka
+            if(!persistedEvent.getId().isEmpty()){
+                //kafkaEventProducer.produceKafkaEvent( event.getClass().getSimpleName(),event );
             }
         }
     }
