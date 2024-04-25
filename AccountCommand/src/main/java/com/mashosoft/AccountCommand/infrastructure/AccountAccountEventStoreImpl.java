@@ -1,8 +1,10 @@
-package com.mashosoft.AccountCommand.infrastructure.events;
+package com.mashosoft.AccountCommand.infrastructure;
 
 import com.mashosoft.AccountCommand.domain.aggregates.AccountAggregate;
 import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import com.mashosoft.AccountCommand.domain.events.store.AccountEventStore;
+import com.mashosoft.AccountCommand.infrastructure.eventsDb.EventModelMongo;
+import com.mashosoft.AccountCommand.infrastructure.eventsDb.EventStoreMongoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

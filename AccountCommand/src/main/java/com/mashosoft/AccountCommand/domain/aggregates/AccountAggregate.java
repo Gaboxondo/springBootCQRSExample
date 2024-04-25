@@ -5,11 +5,12 @@ import com.mashosoft.AccountCommand.domain.events.CloseAccountEvent;
 import com.mashosoft.AccountCommand.domain.events.DepositMoneyEvent;
 import com.mashosoft.AccountCommand.domain.events.WithdrawMoneyEvent;
 import com.mashosoft.AccountCommand.eventFrameworkCore.aggregates.AggregateRoot;
-import com.mashosoft.AccountCommand.interfaces.web.commandsDto.OpenAccountCommandDTO;
+import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommandDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 @NoArgsConstructor
 @Data
@@ -17,8 +18,11 @@ public class AccountAggregate extends AggregateRoot {
 
     private Boolean active;
     private Double balance;
+    private String accountHolder;
 
     public AccountAggregate(OpenAccountCommandDTO commandDTO){
+        String id = UUID.randomUUID().toString();
+        commandDTO.setId( id );
         applyNewEvent( AccountOpenedEvent.builder()
             .accountHolder( commandDTO.getAccountHolder() )
             .creationDate( new Date() )
@@ -30,6 +34,7 @@ public class AccountAggregate extends AggregateRoot {
     public void apply(AccountOpenedEvent event){
         this.id = event.getId();
         this.active = true;
+        this.accountHolder = event.getAccountHolder();
         this.balance = event.getOpeningBalance();
     }
 
@@ -57,6 +62,9 @@ public class AccountAggregate extends AggregateRoot {
         }
         if(amount<= 0){
             throw new IllegalStateException("Amount must be greater than 0");
+        }
+        if(amount > this.getBalance()){
+            throw new IllegalStateException("Insuficient founds");
         }
         applyNewEvent( WithdrawMoneyEvent.builder()
             .id(this.id)

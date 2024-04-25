@@ -1,9 +1,11 @@
-package com.mashosoft.AccountCommand.interfaces.web.commandsDto;
+package com.mashosoft.AccountCommand.domain.commands;
 
 import com.mashosoft.AccountCommand.eventFrameworkCore.commands.BaseCommand;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class OpenAccountCommandDTO extends BaseCommand {
     private String accountHolder;
     private Double openingBalance;

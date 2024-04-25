@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.application;
+package com.mashosoft.AccountCommand.application.events;
 
 import com.mashosoft.AccountCommand.domain.aggregates.AccountAggregate;
 

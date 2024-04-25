@@ -1,5 +1,6 @@
-package com.mashosoft.AccountCommand.infrastructure.events;
+package com.mashosoft.AccountCommand.infrastructure.eventsDb;
 
+import com.mashosoft.AccountCommand.infrastructure.eventsDb.EventModelMongo;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

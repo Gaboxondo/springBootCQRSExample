@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.eventFrameworkCore.commands;
+package com.mashosoft.AccountCommand.interfaces.web.commandsDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +9,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public abstract class BaseCommand {
-    private String id;
+public class WithdrawMoneyDTO {
+    private Double amount;
 }
