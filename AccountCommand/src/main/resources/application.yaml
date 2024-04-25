@@ -5,9 +5,9 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: backAccount
       username: sa
       password: sa
+      database: admin
     kafka:
       producer:
         bootstrap-servers: localhost:9092

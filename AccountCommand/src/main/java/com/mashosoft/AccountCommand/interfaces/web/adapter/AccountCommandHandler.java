@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.domain.commandsHandlers;
+package com.mashosoft.AccountCommand.interfaces.web.adapter;
 
 import com.mashosoft.AccountCommand.interfaces.web.commandsDto.CloseAccountCommandDTO;
 import com.mashosoft.AccountCommand.interfaces.web.commandsDto.DepositMoneyCommandDTO;
@@ -6,8 +6,9 @@ import com.mashosoft.AccountCommand.interfaces.web.commandsDto.OpenAccountComman
 import com.mashosoft.AccountCommand.interfaces.web.commandsDto.WithdrawMoneyCommandDTO;
 
 public interface AccountCommandHandler {
-    void handle(OpenAccountCommandDTO commandDTO);
-    void handle(DepositMoneyCommandDTO commandDTO);
-    void handle(WithdrawMoneyCommandDTO commandDTO);
-    void handle(CloseAccountCommandDTO commandDTO);
+
+    public void handle(OpenAccountCommandDTO openAccountCommandDTO);
+    public void handle(DepositMoneyCommandDTO openAccountCommandDTO);
+    public void handle(WithdrawMoneyCommandDTO openAccountCommandDTO);
+    public void handle(CloseAccountCommandDTO openAccountCommandDTO);
 }

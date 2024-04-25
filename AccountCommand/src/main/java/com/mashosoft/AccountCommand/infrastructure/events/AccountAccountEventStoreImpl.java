@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,7 +20,7 @@ public class AccountAccountEventStoreImpl implements AccountEventStore {
     @Override
     public void saveEvents(String aggregateId, Iterable<BaseEvent> events, Integer expectedVersion) {
         List<EventModelMongo> eventStream = eventStoreMongoRepository.findByAggregateIdentifier( aggregateId );
-        if(expectedVersion != -1 && eventStream.getLast().getVersion() != expectedVersion){
+        if(expectedVersion != -1 && !Objects.equals( eventStream.get( eventStream.size() - 1 ).getVersion(), expectedVersion )){
             throw new RuntimeException("Concurrency exception happen because of the expected version");
         }
         Integer version = expectedVersion;

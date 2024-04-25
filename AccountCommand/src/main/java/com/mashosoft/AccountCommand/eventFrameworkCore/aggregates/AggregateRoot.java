@@ -12,7 +12,7 @@ public abstract class AggregateRoot {
     protected String id;
     private Integer version = -1;
 
-    private final List<BaseEvent> changes = new ArrayList<>();
+    private final List<BaseEvent> newEventsChanges = new ArrayList<>();
 
     public String getId(){
         return this.id;
@@ -26,15 +26,15 @@ public abstract class AggregateRoot {
         this.version = version;
     }
 
-    public List<BaseEvent> getUncommittedChanges(){
-        return this.changes;
+    public List<BaseEvent> getUncommitedEventChanges(){
+        return this.newEventsChanges;
     }
 
-    public void markChangesAsCommitted(){
-        this.changes.clear();
+    public void clearNewEventChanges(){
+        this.newEventsChanges.clear();
     }
 
-    protected void applyChange(BaseEvent event, Boolean isNewEvent){
+    protected void applyEventChange(BaseEvent event, Boolean isNewEvent){
         try{
             Method method = getClass().getDeclaredMethod( "apply", event.getClass() );
             method.setAccessible( true );
@@ -45,16 +45,16 @@ public abstract class AggregateRoot {
             log.error( "Error applying event to aggregate" );
         } finally {
             if(isNewEvent){
-                changes.add( event );
+                newEventsChanges.add( event );
             }
         }
     }
 
-    public void raiseEvent(BaseEvent event){
-        applyChange( event,true );
+    public void applyNewEvent(BaseEvent event){
+        applyEventChange( event,true );
     }
 
-    public void replayEvents(Iterable<BaseEvent> events){
-        events.forEach( event -> applyChange( event,false ) );
+    public void reconstructFromEvents(Iterable<BaseEvent> events){
+        events.forEach( event -> applyEventChange( event,false ) );
     }
 }

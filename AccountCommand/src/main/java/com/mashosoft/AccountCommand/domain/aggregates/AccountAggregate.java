@@ -6,18 +6,23 @@ import com.mashosoft.AccountCommand.domain.events.DepositMoneyEvent;
 import com.mashosoft.AccountCommand.domain.events.WithdrawMoneyEvent;
 import com.mashosoft.AccountCommand.eventFrameworkCore.aggregates.AggregateRoot;
 import com.mashosoft.AccountCommand.interfaces.web.commandsDto.OpenAccountCommandDTO;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+@NoArgsConstructor
+@Data
 public class AccountAggregate extends AggregateRoot {
 
     private Boolean active;
     private Double balance;
 
     public AccountAggregate(OpenAccountCommandDTO commandDTO){
-        raiseEvent( AccountOpenedEvent.builder()
+        applyNewEvent( AccountOpenedEvent.builder()
             .accountHolder( commandDTO.getAccountHolder() )
             .creationDate( new Date() )
+            .id( commandDTO.getId() )
             .openingBalance( commandDTO.getOpeningBalance() )
             .build() );
     }
@@ -35,7 +40,7 @@ public class AccountAggregate extends AggregateRoot {
         if(amount<= 0){
             throw new IllegalStateException("Amount must be greater than 0");
         }
-        raiseEvent( DepositMoneyEvent.builder()
+        applyNewEvent( DepositMoneyEvent.builder()
             .id(this.id)
             .amount( amount )
             .build());
@@ -53,7 +58,7 @@ public class AccountAggregate extends AggregateRoot {
         if(amount<= 0){
             throw new IllegalStateException("Amount must be greater than 0");
         }
-        raiseEvent( WithdrawMoneyEvent.builder()
+        applyNewEvent( WithdrawMoneyEvent.builder()
             .id(this.id)
             .amount( amount )
             .build());
@@ -68,7 +73,7 @@ public class AccountAggregate extends AggregateRoot {
         if(!this.active){
             throw new IllegalStateException("The account is already closed");
         }
-        raiseEvent( CloseAccountEvent.builder()
+        applyNewEvent( CloseAccountEvent.builder()
             .id(this.id)
             .build());
     }
