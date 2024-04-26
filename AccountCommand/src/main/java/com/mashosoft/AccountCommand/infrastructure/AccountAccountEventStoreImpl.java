@@ -42,7 +42,7 @@ public class AccountAccountEventStoreImpl implements AccountEventStore {
 
             EventModelMongo persistedEvent = eventStoreMongoRepository.save( eventModelMongo );
             if(!persistedEvent.getId().isEmpty()){
-                //kafkaEventProducer.produceKafkaEvent( event.getClass().getSimpleName(),event );
+                kafkaEventProducer.produceKafkaEvent( event.getClass().getSimpleName(),event );
             }
         }
     }
