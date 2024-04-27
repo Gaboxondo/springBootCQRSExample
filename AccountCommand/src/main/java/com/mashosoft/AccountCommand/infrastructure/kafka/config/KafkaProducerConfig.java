@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.infrastructure.eventsKafka.config;
+package com.mashosoft.AccountCommand.infrastructure.kafka.config;
 
 import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;

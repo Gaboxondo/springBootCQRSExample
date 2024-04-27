@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.infrastructure.eventsKafka.config;
+package com.mashosoft.AccountCommand.infrastructure.kafka.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

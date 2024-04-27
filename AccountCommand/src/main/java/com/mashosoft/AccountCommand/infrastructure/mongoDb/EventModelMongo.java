@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.infrastructure.eventsDb;
+package com.mashosoft.AccountCommand.infrastructure.mongoDb;
 
 import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import lombok.Builder;

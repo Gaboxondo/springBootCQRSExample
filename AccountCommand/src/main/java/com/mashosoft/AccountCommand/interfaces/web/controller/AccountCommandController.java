@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "/v1/accounts")
 @AllArgsConstructor
-public class AccountController {
+public class AccountCommandController {
 
     private final AccountInterfaceAdapter accountInterfaceAdapter;
 
@@ -30,11 +30,13 @@ public class AccountController {
     }
 
     @PutMapping("/{id}/withdraw")
+    @ResponseStatus(HttpStatus.OK)
     public AccountDTO withdrawMoney(@RequestBody WithdrawMoneyDTO withdrawMoneyDTO, @PathVariable("id") String id){
         return accountInterfaceAdapter.withdrawMoney(id, withdrawMoneyDTO );
     }
 
     @PutMapping("/{id}/close")
+    @ResponseStatus(HttpStatus.OK)
     public AccountDTO closeAccount(@PathVariable("id") String id){
         return accountInterfaceAdapter.closeAccount(id );
     }

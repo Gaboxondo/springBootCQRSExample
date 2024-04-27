@@ -1,4 +1,4 @@
-package com.mashosoft.AccountCommand.infrastructure.eventsKafka;
+package com.mashosoft.AccountCommand.infrastructure.kafka;
 
 import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import lombok.AllArgsConstructor;
