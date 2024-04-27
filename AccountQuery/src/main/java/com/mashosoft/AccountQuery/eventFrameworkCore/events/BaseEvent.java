@@ -1,4 +1,4 @@
-package com.mashosoft.AccountQuery.domain.model.events;
+package com.mashosoft.AccountQuery.eventFrameworkCore.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

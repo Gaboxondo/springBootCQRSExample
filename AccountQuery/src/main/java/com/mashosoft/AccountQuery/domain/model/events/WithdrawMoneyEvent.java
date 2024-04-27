@@ -1,5 +1,6 @@
 package com.mashosoft.AccountQuery.domain.model.events;
 
+import com.mashosoft.AccountQuery.eventFrameworkCore.events.BaseEvent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
