@@ -10,7 +10,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@EqualsAndHashCode(callSuper = true)
 public class AccountOpenedEvent extends BaseEvent {
     private String accountHolder;
     private Date creationDate;
