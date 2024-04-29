@@ -15,13 +15,14 @@ spring:
           json:
             trusted:
               packages: '*'
-            type:
-              mapping: "com.mashosoft.AccountCommand.domain.events.model.AccountOpenedEvent:com.mashosoft.AccountQuery.interfaces.kafka.dto.AccountOpenedEventDTO"
+            add:
+              type:
+                headers: false
   datasource:
     url: jdbc:postgresql://localhost:5432/accountsquery
     username: sa
     password: sa
     jpa:
-      hibernate.ddl-auto: update
+      hibernate.ddl-auto: create
       properties.hibernate.format_sql: true
       show-sql: false
