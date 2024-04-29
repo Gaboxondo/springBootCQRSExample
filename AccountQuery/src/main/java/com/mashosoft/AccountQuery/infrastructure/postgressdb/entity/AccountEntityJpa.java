@@ -26,7 +26,7 @@ public class AccountEntityJpa {
     @Column
     private Date creationDate;
     @Column
-    private Double openingBalance;
+    private Double balance;
     @Column
     private Integer version;
 }

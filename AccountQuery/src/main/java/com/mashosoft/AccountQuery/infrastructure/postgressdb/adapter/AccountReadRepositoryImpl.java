@@ -29,4 +29,11 @@ public class AccountReadRepositoryImpl implements AccountReadRepository {
         accountJpaRepository.save( accountEntityJpa );
         return accountRead;
     }
+
+    @Override
+    public AccountRead delete(AccountRead accountRead) {
+        AccountEntityJpa accountEntityJpa = accountDbMapper.fromDomainToDb( accountRead );
+        accountJpaRepository.delete( accountEntityJpa );
+        return accountRead;
+    }
 }

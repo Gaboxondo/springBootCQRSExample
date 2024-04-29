@@ -17,27 +17,24 @@ public class AccountRead {
     private String id;
     private String accountHolder;
     private Date creationDate;
-    private Double openingBalance;
+    private Double balance;
     private Integer version;
 
     public AccountRead(AccountOpenedEvent accountOpenedEvent) {
         this.setId( accountOpenedEvent.getId() );
         this.setAccountHolder( accountOpenedEvent.getAccountHolder() );
         this.setCreationDate( accountOpenedEvent.getCreationDate() );
-        this.setOpeningBalance( accountOpenedEvent.getOpeningBalance() );
+        this.setBalance( accountOpenedEvent.getOpeningBalance() );
         this.setVersion( accountOpenedEvent.getVersion() );
     }
 
-
-    public void applyChanges(CloseAccountEvent accountOpenedEvent){
-
+    public void applyChanges(DepositMoneyEvent depositMoneyEvent){
+        this.balance += depositMoneyEvent.getAmount();
+        this.version = depositMoneyEvent.getVersion();
     }
 
-    public void applyChanges(DepositMoneyEvent accountOpenedEvent){
-
-    }
-
-    public void applyChanges(WithdrawMoneyEvent accountOpenedEvent){
-
+    public void applyChanges(WithdrawMoneyEvent withdrawMoneyEvent){
+        this.balance -= withdrawMoneyEvent.getAmount();
+        this.version = withdrawMoneyEvent.getVersion();
     }
 }

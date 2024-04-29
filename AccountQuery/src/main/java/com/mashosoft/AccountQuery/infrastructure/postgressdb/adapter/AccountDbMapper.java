@@ -9,13 +9,13 @@ public class AccountDbMapper {
 
     public AccountRead fromDbToDomain(AccountEntityJpa accountEntityJpa){
         AccountRead accountRead = new AccountRead(accountEntityJpa.getId(),accountEntityJpa.getAccountHolder(),
-            accountEntityJpa.getCreationDate(),accountEntityJpa.getOpeningBalance(),accountEntityJpa.getVersion());
+            accountEntityJpa.getCreationDate(),accountEntityJpa.getBalance(),accountEntityJpa.getVersion());
         return accountRead;
     }
 
     public AccountEntityJpa fromDomainToDb(AccountRead accountRead){
         AccountEntityJpa accountEntityJpa = new AccountEntityJpa(accountRead.getId(),accountRead.getAccountHolder(),
-            accountRead.getCreationDate(),accountRead.getOpeningBalance(),accountRead.getVersion());
+            accountRead.getCreationDate(),accountRead.getBalance(),accountRead.getVersion());
         return accountEntityJpa;
     }
 }

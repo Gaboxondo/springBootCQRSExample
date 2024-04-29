@@ -6,4 +6,6 @@ public interface AccountReadRepository {
 
     public AccountRead getAccountReadFromDatabaseById(String id);
     public AccountRead save(AccountRead accountRead);
+
+    public AccountRead delete(AccountRead accountRead);
 }
