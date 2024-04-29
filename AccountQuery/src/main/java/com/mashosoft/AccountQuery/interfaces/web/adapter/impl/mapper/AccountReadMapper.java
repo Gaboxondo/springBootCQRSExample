@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 public class AccountReadMapper {
 
     public AccountReadDTO fromDomainToDTO(AccountRead accountRead){
-        return new AccountReadDTO();
+        return AccountReadDTO.builder()
+            .id( accountRead.getId() )
+            .accountHolder( accountRead.getAccountHolder() )
+            .creationDate( accountRead.getCreationDate() )
+            .balance( accountRead.getBalance() )
+            .version( accountRead.getVersion() )
+            .build();
     }
 }
