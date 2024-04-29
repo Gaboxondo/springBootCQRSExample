@@ -13,7 +13,7 @@ import java.util.Date;
 @SuperBuilder
 public class AccountOpenedEventDTO {
     private String id;
-    private int version;
+    private Integer version;
     private String accountHolder;
     private Date creationDate;
     private Double openingBalance;
