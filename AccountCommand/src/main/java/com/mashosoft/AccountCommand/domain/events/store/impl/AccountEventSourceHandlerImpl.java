@@ -6,6 +6,7 @@ import com.mashosoft.AccountCommand.domain.events.store.AccountEventStore;
 import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -31,5 +32,14 @@ public class AccountEventSourceHandlerImpl implements AccountEventSourceHandler 
         }
 
         return accountAggregate;
+    }
+
+    @Override
+    public void restoreDbRepublishingEvents() {
+        List<String> accountsIds = accountEventStore.getAccountsId();
+        accountsIds.forEach( id -> {
+            AccountAggregate accountAggregate = this.getById( id );
+
+        } );
     }
 }

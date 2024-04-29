@@ -12,4 +12,6 @@ public interface AccountCommandHandler {
     public AccountAggregate handle(DepositMoneyCommand depositMoneyCommand);
     public AccountAggregate handle(WithdrawMoneyCommand withdrawMoneyCommand);
     public AccountAggregate handle(CloseAccountCommand closeAccountCommand);
+
+    void restoreDbRepublishingEvents();
 }

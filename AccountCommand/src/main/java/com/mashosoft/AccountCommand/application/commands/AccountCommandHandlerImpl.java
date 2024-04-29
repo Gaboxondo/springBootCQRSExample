@@ -8,6 +8,9 @@ import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommand;
 import com.mashosoft.AccountCommand.domain.commands.WithdrawMoneyCommand;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -44,5 +47,10 @@ public class AccountCommandHandlerImpl implements AccountCommandHandler {
         accountAggregate.closeAccount();
         accountEventSourceHandler.save( accountAggregate );
         return accountAggregate;
+    }
+
+    @Override
+    public void restoreDbRepublishingEvents() {
+        accountEventSourceHandler.restoreDbRepublishingEvents();
     }
 }

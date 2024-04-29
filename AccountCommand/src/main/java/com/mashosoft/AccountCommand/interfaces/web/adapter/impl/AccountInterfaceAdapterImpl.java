@@ -51,4 +51,9 @@ public class AccountInterfaceAdapterImpl implements AccountInterfaceAdapter {
         AccountAggregate accountAggregate = accountCommandHandler.handle( closeAccountCommand );
         return accountInterfaceMapper.fromDomainToDTO( accountAggregate );
     }
+
+    @Override
+    public void restoreDbRepublishingEvents() {
+        accountCommandHandler.restoreDbRepublishingEvents();
+    }
 }

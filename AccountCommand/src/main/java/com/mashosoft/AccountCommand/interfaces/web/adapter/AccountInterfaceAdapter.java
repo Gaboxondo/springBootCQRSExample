@@ -11,4 +11,6 @@ public interface AccountInterfaceAdapter {
     public AccountDTO depositMoney(String id, DepositMoneyDTO depositMoneyDTO);
     public AccountDTO withdrawMoney(String id, WithdrawMoneyDTO openAccountCommandDTO);
     public AccountDTO closeAccount(String id);
+
+    public void restoreDbRepublishingEvents();
 }

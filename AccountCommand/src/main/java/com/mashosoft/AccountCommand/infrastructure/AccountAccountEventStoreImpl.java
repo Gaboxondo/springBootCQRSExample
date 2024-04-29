@@ -55,4 +55,9 @@ public class AccountAccountEventStoreImpl implements AccountEventStore {
         }
         return eventStream.stream().map( EventModelMongo::getEventData ).collect( Collectors.toList());
     }
+
+    @Override
+    public List<String> getAccountsId() {
+        return eventStoreMongoRepository.findAll().stream().map( EventModelMongo::getId ).distinct().collect( Collectors.toList());
+    }
 }
