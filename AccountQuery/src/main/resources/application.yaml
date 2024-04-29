@@ -21,9 +21,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/accountsquery
     username: sa
     password: sa
-    hikari:
-      connectionTimeout: 20000
-      maximumPoolSize: 5
     jpa:
       hibernate.ddl-auto: update
       properties.hibernate.format_sql: true

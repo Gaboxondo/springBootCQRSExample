@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "readDb": {
+      "Name": "readDb",
+      "Group": "Servers",
+      "Host": "postgrescqrs",
+      "Port": 5432,
+      "MaintenanceDB": "accountsquery",
+      "Username": "sa",
+      "PassFile": "/pgpass",
+      "SSLMode": "prefer"
+    }
+  }
+}
