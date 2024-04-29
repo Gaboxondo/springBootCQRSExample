@@ -1,6 +1,8 @@
 server:
   port: 8091
 spring:
+  flyway:
+    locations: classpath:dbschema
   kafka:
     listener:
       ack-mode: MANUAL_IMMEDIATE
@@ -22,7 +24,3 @@ spring:
     url: jdbc:postgresql://localhost:5432/accountsquery
     username: sa
     password: sa
-    jpa:
-      hibernate.ddl-auto: create
-      properties.hibernate.format_sql: true
-      show-sql: false

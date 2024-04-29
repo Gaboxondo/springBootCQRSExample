@@ -21,12 +21,11 @@ public class AccountRead {
     private Integer version;
 
     public AccountRead(AccountOpenedEvent accountOpenedEvent) {
-        AccountRead accountRead = new AccountRead();
-        accountRead.setId( accountOpenedEvent.getId() );
-        accountRead.setAccountHolder( accountOpenedEvent.getAccountHolder() );
-        accountRead.setCreationDate( accountOpenedEvent.getCreationDate() );
-        accountRead.setOpeningBalance( accountOpenedEvent.getOpeningBalance() );
-        accountRead.setVersion( accountOpenedEvent.getVersion() );
+        this.setId( accountOpenedEvent.getId() );
+        this.setAccountHolder( accountOpenedEvent.getAccountHolder() );
+        this.setCreationDate( accountOpenedEvent.getCreationDate() );
+        this.setOpeningBalance( accountOpenedEvent.getOpeningBalance() );
+        this.setVersion( accountOpenedEvent.getVersion() );
     }
 
 
