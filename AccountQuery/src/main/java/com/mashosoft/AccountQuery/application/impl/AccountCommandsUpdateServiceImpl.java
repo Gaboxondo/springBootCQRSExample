@@ -15,6 +15,8 @@ public class AccountCommandsUpdateServiceImpl implements AccountCommandsUpdateSe
 
     @Override
     public void handleUpdateOfCommand(AccountOpenedEvent accountOpenedEvent) {
+        return;
+        /*
         AccountRead alreadyExistingAccount = accountReadRepository.getAccountReadFromDatabaseById(accountOpenedEvent.getId());
         if(alreadyExistingAccount != null){
             throw new IllegalArgumentException("Error, ya existe una cuenta con ese ID por lo que no se puede crear de nuevo");
@@ -23,6 +25,7 @@ public class AccountCommandsUpdateServiceImpl implements AccountCommandsUpdateSe
 
         AccountRead accountRead = new AccountRead(accountOpenedEvent);
         accountReadRepository.save( accountRead );
+         */
 
     }
 }
