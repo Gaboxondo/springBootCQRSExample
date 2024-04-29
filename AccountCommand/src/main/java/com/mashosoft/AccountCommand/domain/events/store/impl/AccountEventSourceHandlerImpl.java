@@ -38,8 +38,8 @@ public class AccountEventSourceHandlerImpl implements AccountEventSourceHandler 
     public void restoreDbRepublishingEvents() {
         List<String> accountsIds = accountEventStore.getAccountsId();
         accountsIds.forEach( id -> {
-            AccountAggregate accountAggregate = this.getById( id );
-
+            List<BaseEvent> aggregateEvents = accountEventStore.getEvents( id );
+            accountEventStore.republishEvents( aggregateEvents );
         } );
     }
 }

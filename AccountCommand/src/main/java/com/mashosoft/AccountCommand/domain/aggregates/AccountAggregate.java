@@ -6,10 +6,12 @@ import com.mashosoft.AccountCommand.domain.events.model.DepositMoneyEvent;
 import com.mashosoft.AccountCommand.domain.events.model.WithdrawMoneyEvent;
 import com.mashosoft.AccountCommand.eventFrameworkCore.aggregates.AggregateRoot;
 import com.mashosoft.AccountCommand.domain.commands.OpenAccountCommand;
+import com.mashosoft.AccountCommand.eventFrameworkCore.events.BaseEvent;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @NoArgsConstructor

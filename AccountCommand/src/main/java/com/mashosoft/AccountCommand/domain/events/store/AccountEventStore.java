@@ -9,5 +9,6 @@ public interface AccountEventStore {
     void saveEvents(String aggregateId, Iterable<BaseEvent> events,Integer expectedVersion);
     List<BaseEvent> getEvents(String aggregateId);
 
+    void republishEvents(Iterable<BaseEvent> events);
     List<String> getAccountsId();
 }

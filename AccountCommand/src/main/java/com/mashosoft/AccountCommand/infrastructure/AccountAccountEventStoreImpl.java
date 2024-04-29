@@ -57,7 +57,14 @@ public class AccountAccountEventStoreImpl implements AccountEventStore {
     }
 
     @Override
+    public void republishEvents(Iterable<BaseEvent> events) {
+        events.forEach( event -> {
+            kafkaEventProducer.produceKafkaEvent( event.getClass().getSimpleName(),event );
+        } );
+    }
+
+    @Override
     public List<String> getAccountsId() {
-        return eventStoreMongoRepository.findAll().stream().map( EventModelMongo::getId ).distinct().collect( Collectors.toList());
+        return eventStoreMongoRepository.findAll().stream().map( EventModelMongo::getAggregateIdentifier ).distinct().collect( Collectors.toList());
     }
 }
