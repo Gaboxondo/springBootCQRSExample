@@ -21,7 +21,7 @@ public class AccountEventConsumer {
     @KafkaListener(topics = "AccountOpenedEvent", groupId = "${spring.kafka.consumer.group-id}",
         properties = {"spring.json.value.default.type=com.mashosoft.AccountQuery.interfaces.kafka.dto.AccountOpenedEventDTO"})
     public void consume(AccountOpenedEventDTO accountOpenedEventDTO, Acknowledgment ack){
-        log.info( "Event received for account opening {}", accountOpenedEventDTO );
+        log.info( "Event received for {} and id {}", accountOpenedEventDTO.getClass().getSimpleName(), accountOpenedEventDTO.getId() );
         accountEventsInterfaceAdapter.handle( accountOpenedEventDTO );
         ack.acknowledge();
     }
@@ -29,7 +29,7 @@ public class AccountEventConsumer {
     @KafkaListener(topics = "CloseAccountEvent", groupId = "${spring.kafka.consumer.group-id}",
         properties = {"spring.json.value.default.type=com.mashosoft.AccountQuery.interfaces.kafka.dto.CloseAccountEventDTO"})
     public void consume(CloseAccountEventDTO closeAccountEventDTO, Acknowledgment ack){
-        log.info( "Event received for account closing {}", closeAccountEventDTO );
+        log.info( "Event received for {} and id {}", closeAccountEventDTO.getClass().getSimpleName(), closeAccountEventDTO.getId() );
         accountEventsInterfaceAdapter.handle( closeAccountEventDTO );
         ack.acknowledge();
     }
@@ -37,7 +37,7 @@ public class AccountEventConsumer {
     @KafkaListener(topics = "DepositMoneyEvent", groupId = "${spring.kafka.consumer.group-id}",
         properties = {"spring.json.value.default.type=com.mashosoft.AccountQuery.interfaces.kafka.dto.DepositMoneyEventDTO"})
     public void consume(DepositMoneyEventDTO depositMoneyEventDTO, Acknowledgment ack){
-        log.info( "Event received for account closing {}", depositMoneyEventDTO );
+        log.info( "Event received for {} and id {}", depositMoneyEventDTO.getClass().getSimpleName(),depositMoneyEventDTO.getId()  );
         accountEventsInterfaceAdapter.handle( depositMoneyEventDTO );
         ack.acknowledge();
     }
@@ -45,7 +45,7 @@ public class AccountEventConsumer {
     @KafkaListener(topics = "WithdrawMoneyEvent", groupId = "${spring.kafka.consumer.group-id}",
         properties = {"spring.json.value.default.type=com.mashosoft.AccountQuery.interfaces.kafka.dto.WithdrawMoneyEventDTO"})
     public void consume(WithdrawMoneyEventDTO withdrawMoneyEventDTO, Acknowledgment ack){
-        log.info( "Event received for account closing {}", withdrawMoneyEventDTO );
+        log.info( "Event received for {} and id {}", withdrawMoneyEventDTO.getClass().getSimpleName(),withdrawMoneyEventDTO.getId()  );
         accountEventsInterfaceAdapter.handle( withdrawMoneyEventDTO );
         ack.acknowledge();
     }

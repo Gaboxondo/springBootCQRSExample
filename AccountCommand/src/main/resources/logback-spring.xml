@@ -10,6 +10,10 @@
             additivity="false">
         <appender-ref ref="Console"/>
     </logger>
+    <logger name="org.springframework.kafka.listener.KafkaMessageListenerContainer" level="INFO"
+            additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
     <Root level="ERROR" additivity="false">
         <appender-ref ref="Console"/>
     </Root>
