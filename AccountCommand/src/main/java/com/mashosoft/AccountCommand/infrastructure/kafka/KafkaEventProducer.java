@@ -14,7 +14,7 @@ public class KafkaEventProducer {
     private final KafkaTemplate<String,BaseEvent> kafkaTemplate;
 
     public void produceKafkaEvent(String topic, BaseEvent baseEvent){
-        log.info( "Publishing event for {} with id {} and version {}", baseEvent.getClass().getSimpleName(),
+        log.info( "Publishing event for {} with id {} and version {}", baseEvent.getOperation(),
             baseEvent.getId(), baseEvent.getVersion() );
         this.kafkaTemplate.send( topic,baseEvent );
     }

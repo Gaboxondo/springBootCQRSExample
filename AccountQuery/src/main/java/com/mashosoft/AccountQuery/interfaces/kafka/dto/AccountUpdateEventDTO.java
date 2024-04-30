@@ -6,13 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Date;
+
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 @ToString
-public class WithdrawMoneyEventDTO {
-    private Double amount;
+public class AccountUpdateEventDTO {
     private String id;
-    private int version;
+    private Integer version;
+    private String operation;
+    private String accountHolder;
+    private Date creationDate;
+    private Double openingBalance;
+    private Double amount;
 }

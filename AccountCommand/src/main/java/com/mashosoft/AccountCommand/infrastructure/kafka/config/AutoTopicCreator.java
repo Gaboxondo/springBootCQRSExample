@@ -11,13 +11,7 @@ public class AutoTopicCreator {
     @Bean
     public KafkaAdmin.NewTopics topics456() {
         return new KafkaAdmin.NewTopics(
-            TopicBuilder.name("AccountOpenedEvent")
-                .build(),
-            TopicBuilder.name("CloseAccountEvent")
-                .build(),
-            TopicBuilder.name("WithdrawMoneyEvent")
-                .build(),
-            TopicBuilder.name("DepositMoneyEvent")
+            TopicBuilder.name("AccountUpdateEvent")
                 .build());
     }
 }
