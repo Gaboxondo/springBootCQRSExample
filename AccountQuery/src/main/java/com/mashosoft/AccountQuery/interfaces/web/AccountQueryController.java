@@ -1,6 +1,6 @@
 package com.mashosoft.AccountQuery.interfaces.web;
 
-import com.mashosoft.AccountQuery.interfaces.web.adapter.AccountReadInterfaceAdapter;
+import com.mashosoft.AccountQuery.interfaces.adapter.AccountReadInterfaceAdapter;
 import com.mashosoft.AccountQuery.interfaces.web.dto.AccountReadDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

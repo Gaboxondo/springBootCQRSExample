@@ -1,6 +1,6 @@
 package com.mashosoft.AccountQuery.application;
 
-import com.mashosoft.AccountQuery.domain.model.AccountRead;
+import com.mashosoft.AccountQuery.domain.entity.AccountRead;
 
 public interface AccountReadService {
 

@@ -1,6 +1,6 @@
 package com.mashosoft.AccountQuery.infrastructure.postgressdb.adapter;
 
-import com.mashosoft.AccountQuery.domain.model.AccountRead;
+import com.mashosoft.AccountQuery.domain.entity.AccountRead;
 import com.mashosoft.AccountQuery.domain.repository.AccountReadRepository;
 import com.mashosoft.AccountQuery.infrastructure.postgressdb.entity.AccountEntityJpa;
 import com.mashosoft.AccountQuery.infrastructure.postgressdb.repository.AccountJpaRepository;
@@ -35,5 +35,10 @@ public class AccountReadRepositoryImpl implements AccountReadRepository {
         AccountEntityJpa accountEntityJpa = accountDbMapper.fromDomainToDb( accountRead );
         accountJpaRepository.delete( accountEntityJpa );
         return accountRead;
+    }
+
+    @Override
+    public void dropTable() {
+        accountJpaRepository.deleteAll();
     }
 }

@@ -1,6 +1,6 @@
 package com.mashosoft.AccountQuery.interfaces.kafka;
 
-import com.mashosoft.AccountQuery.interfaces.kafka.adapter.AccountEventsInterfaceAdapter;
+import com.mashosoft.AccountQuery.interfaces.adapter.AccountEventsInterfaceAdapter;
 import com.mashosoft.AccountQuery.interfaces.kafka.dto.AccountOpenedEventDTO;
 import com.mashosoft.AccountQuery.interfaces.kafka.dto.CloseAccountEventDTO;
 import com.mashosoft.AccountQuery.interfaces.kafka.dto.DepositMoneyEventDTO;
